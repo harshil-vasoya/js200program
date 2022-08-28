@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>pattern1</title>
+</head>
+<body>
+
+	
+
+	<script type="text/javascript">
+
+		n=parseInt(prompt("Enter row number"));
+		for (i=1;i<=n;i++) 
+		{
+			var a=i;
+			for(j=1;j<=i;j++)
+			{
+				document.write(j);
+			}
+
+			for(k=1;k<=(n-i)*2;k++)
+			{
+				document.write("&nbsp&nbsp");
+			}
+
+			for(r=1;r<=i;r++)
+			{
+				document.write(a);
+				a--;
+			}	
+
+			document.write("<br/>");
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>share lont massage</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #text-box {
+            width: 70vw;
+            height: 30vh;
+            border: 1px solid black;
+            border-radius: 1rem;
+        }
+
+        .main-box {
+            position: absolute;
+            top: 50vh;
+            left: 50vw;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+
+</head>
+<!-- share any message form safari not for google chorme -->
+<body>
+
+    <div class="main-box">
+        <textarea id="text-box" cols="30" rows="10"></textarea>
+        <button onclick="share()">share</button>
+    </div>
+
+
+
+
+    <script>
+
+        var box = document.getElementById("text-box");
+
+        function share() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'massage',
+                    text: box.value
+                })
+                    .then(() => console.log('Successful share'))
+                    .catch((error) => console.log('Error sharing', error));
+            } else {
+                alert('Web Share API is not supported');
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

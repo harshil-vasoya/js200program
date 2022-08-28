@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>anonymousfunction</title>
+  </head>
+  <body>
+    <script>
+      // Write a "mul" function which will properly when invoked as below syntax
+      // problem
+      // console.log(mul(2)(3)(4)); // output : 24
+      // console.log(mul(4)(3)(4)); // output : 48
+
+      function mul(x) {
+        return function (y) {
+          console.log("hiii1");
+          return function (z) {
+            return x * y * z;
+          };
+        };
+      }
+      console.log(mul(2)(3)(4));
+    </script>
+  </body>
+</html>

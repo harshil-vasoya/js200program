@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<!-- R.P.Raiyani -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atendance</title>
+
+    <link rel="stylesheet" href="index.css">
+</head>
+<body onkeydown="move(event)" id="mybody">
+<!-- pro attensdance -->
+    <div class="main-box">
+
+        <div class="set-box">
+            <input type="number" id="start" placeholder="start" onfocus="getFocus()">
+            <input type="number" id="stop" placeholder="stop" onfocus="getFocus()"> 
+        </div>
+       
+    
+        <div id="count">
+        </div>
+
+        <button onclick="activCount(this)" class="start-btn" id="start-btn">Start</button>
+
+        <div class="content-box" id="list"></div>
+        <button id="clear-btn" onclick="clearall()">clear</button>
+        <button id="print-btn" onclick="printall()">print</button>
+        <button id="edit-btn" onclick="make_edit(this)">edit</button>
+
+
+    </div>
+   
+    <footer>R.P.Raiyani</footer>
+
+    <script src="index.js"></script>
+    
+</body>
+</html>

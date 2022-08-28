@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- Set Difference Operation -->
+<body>
+    <script>
+        // perform difference operation
+        // elements of set a that are not in set b
+        function difference(setA, setB) {
+            let differenceSet = new Set(setA)
+            for (let i of setB) {
+                differenceSet.delete(i)
+            }
+            return differenceSet
+        }
+
+        // two sets of fruits
+        const setA = new Set(['apple', 'mango', 'orange']);
+        const setB = new Set(['grapes', 'apple', 'banana']);
+
+        const result = difference(setA, setB);
+
+        console.log(result);
+    </script>
+</body>
+
+</html>

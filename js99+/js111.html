@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>emptyarray</title>
+  </head>
+  <body>
+    <script>
+        //   empty an array in JavaScript
+      var arrayList = ["a", "b", "c", "d", "e", "f"];
+      // first method
+
+      while (arrayList.length) {
+        arrayList.pop();
+      }
+
+      //second method
+
+      var anotherArrayList = arrayList;
+      arrayList = []; 
+      console.log(arrayList);
+    </script>
+  </body>
+</html>

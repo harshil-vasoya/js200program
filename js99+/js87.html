@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="attendace.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- attendnce normal -->
+    <div class="attendace">
+        <input type="checkbox" checked onclick="absent(this)" id="number" value="101">
+        <span  >101</span> <br/>
+         <input type="checkbox" checked onclick="absent(this)" id="number" value="102">
+        <span >102</span>  <br/>
+         <input type="checkbox" checked onclick="absent(this)" id="number" value="103">
+        <span >103</span>  <br/>
+         <input type="checkbox" checked onclick="absent(this)" id="number" value="104">
+        <span >104</span>  <br/>
+         <input type="checkbox" checked onclick="absent(this)" id="number" value="105">
+        <span >105</span>  <br/>
+         <input type="checkbox" checked onclick="absent(this)" id="number" value="106">
+        <span >106</span>  <br/>
+         <input type="checkbox" checked onclick="absent(this)" id="number" value="107">
+        <span >107</span>  <br/>
+        <input type="checkbox" checked onclick="absent(this)" id="number" value="108">
+        <span >108</span> <br/> 
+         <input type="checkbox" checked onclick="absent(this)" id="number" value="109">
+        <span >109</span> <br/> 
+        <input type="checkbox" checked onclick="absent(this)" id="number" value="110">
+        <span >110</span>  <br/>
+        <input type="checkbox" checked onclick="absent(this)" id="number" value="111">
+        <span >111</span>  <br/>
+         <input type="checkbox" checked onclick="absent(this)" id="number" value="112">
+        <span >112</span>  <br/>
+         <input type="checkbox" checked onclick="absent(this)" id="number" value="113">
+        <span >113</span>  <br/>
+         <input type="checkbox" checked onclick="absent(this)" id="number" value="114">
+        <span >114</span> <br/> 
+        <input type="checkbox" checked onclick="absent(this)" id="number" value="115">
+        <span >115</span>  <br/>
+
+        
+
+    </div>
+    <div class="list">
+        number of all student who are absent in this class
+        <div id="harshil"></div>
+    </div>
+    <script>
+        i=0;
+        var numberlis=[];
+        function absent(aa)
+        {
+            if(aa.checked==true)
+            {
+                var temp=aa.value;
+                tempcheck=parseInt(0);
+                var x=0;
+                for(i=0;i<numberlis.length;i++)
+                {
+                    if(numberlis[i]==temp)
+                    {
+                        x=i;
+                        tempcheck++;
+                        break
+                    }
+                }
+                if(tempcheck==0)
+                {
+                    numberlis.push(aa.value);
+                }
+                if(tempcheck!=0)
+                {
+                    numberlis.splice(x,1);
+                }
+            }
+            else
+            {
+                numberlis.push(aa.value);
+            }
+            
+            n2=document.getElementById("harshil");
+            numberlis.sort();
+            n2.innerHTML=numberlis;
+           
+            console.log(numberlis);
+            
+            
+        }
+       
+    </script>
+    
+</body>
+</html>

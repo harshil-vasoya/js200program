@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Print matrix in zig-zag fashion -->
+    <script>
+        // Javascript Program to print matrix in Zig-zag pattern
+        var n = 3, m = 3;
+        var a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+        var zigZagMatrix = function (arr, n, m) {
+            var row = 0;
+            var col = 0;
+            var row_inc = 0;
+
+            var mn = Math.min(m, n);
+            for (var len = 1; len <= mn; ++len) {
+                for (var i = 0; i < len; ++i) {
+                    console.log(arr[row][col]);
+                    console.log(" ");
+
+                    if (i + 1 == len)
+                        break;
+                    if (row_inc)
+                        ++row, --col;
+                    else
+                        --row, ++col;
+                }
+
+                if (len == mn)
+                    break;
+
+                if (row_inc)
+                    ++row, row_inc = false;
+                else
+                    ++col, row_inc = true;
+            }
+
+            if (row == 0) {
+                if (col == m - 1)
+                    ++row;
+                else
+                    ++col;
+                row_inc = 1;
+            }
+            else {
+                if (row == n - 1)
+                    ++col;
+                else
+                    ++row;
+                row_inc = 0;
+            }
+
+            var MAX = Math.max(m, n) - 1;
+            for (var len, diag = MAX; diag > 0; --diag) {
+
+                if (diag > mn)
+                    len = mn;
+                else
+                    len = diag;
+
+                for (var i = 0; i < len; ++i) {
+                    console.log(arr[row][col]);
+                    console.log(" ");
+                    if (i + 1 == len)
+                        break;
+
+                    if (row_inc)
+                        ++row, --col;
+                    else
+                        ++col, --row;
+                }
+
+                if (row == 0 || col == m - 1) {
+                    if (col == m - 1)
+                        ++row;
+                    else
+                        ++col;
+
+                    row_inc = true;
+                }
+
+                else if (col == 0 || row == n - 1) {
+                    if (row == n - 1)
+                        ++col;
+                    else
+                        ++row;
+                    row_inc = false;
+                }
+            }
+        }
+        zigZagMatrix(a, 3, 3);
+    </script>
+</body>
+
+</html>

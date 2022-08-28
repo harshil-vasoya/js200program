@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #text-box {
+            width: 70vw;
+            height: 30vh;
+            border: 1px solid black;
+            border-radius: 1rem;
+        }
+
+        .main-box {
+            position: absolute;
+            top: 50vh;
+            left: 50vw;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="main-box">
+        <div id="text-box" contenteditable="true"></div>
+        <button onclick="play()">play</button>
+    </div>
+
+
+
+
+    <script>
+
+        var box = document.getElementById("text-box");
+
+        let speech = new SpeechSynthesisUtterance();
+        var changevoice =window.SpeechSynthesis.getVoice();
+        speech.voice=changevoice.filter(function (voice)
+        {
+            return voice.name="Rishi";
+        })[0];
+        speech.lang = "en";
+
+        isPlay = false;
+        function play() {
+            speech.text = box.innerHTML;
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
+</body>
+
+</html>

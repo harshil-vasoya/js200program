@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20</title>
+  </head>
+  <body>
+    <script>
+      function printSpiral(size) {
+        let row = 0,
+          col = 0;
+
+        let boundary = size - 1;
+        let sizeLeft = size - 1;
+        let flag = 1;
+        let move = "r";
+
+
+        let matrix = new Array(size);
+        for (let i = 0; i < size; i++) {
+          matrix[i] = new Array(size).fill(0);
+        }
+
+        for (let i = 1; i < size * size + 1; i++) {
+         
+          matrix[row][col] = i;
+
+          
+          switch (move) {
+            
+            case "r":
+              col += 1;
+              break;
+
+            case "l":
+              col -= 1;
+              break;
+
+            
+            case "u":
+              row -= 1;
+              break;
+
+            case "d":
+              row += 1;
+              break;
+          }
+
+        
+          if (i == boundary) {
+            boundary += sizeLeft;
+
+            if (flag != 2) {
+              flag = 2;
+            } else {
+              flag = 1;
+              sizeLeft -= 1;
+            }
+
+            switch (move) {
+              
+              case "r":
+                move = "d";
+                break;
+
+              
+              case "d":
+                move = "l";
+                break;
+
+              
+              case "l":
+                move = "u";
+                break;
+
+             
+              case "u":
+                move = "r";
+                break;
+            }
+          }
+        }
+
+       
+        for (row = 0; row < size; row++) {
+          for (col = 0; col < size; col++) {
+            let n = matrix[row][col];
+            if (n < 10) document.write(n + " ");
+            else document.write(n + " ");
+          }
+          document.write("<br>");
+        }
+      }
+
+      
+      let size = 5;
+
+      printSpiral(size);
+
+      
+    </script>
+  </body>
+</html>

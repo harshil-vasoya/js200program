@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>covertarrytoobj</title>
+  </head>
+  <body>
+    <script>
+      let arr = ["1", "Test User", "25", "Developer"];
+      let arr1 = [
+        ["id", "1"],
+        ["name", "Test User"],
+        ["age", "25"],
+        ["profession", "Developer"],
+      ];
+
+      //Method 1: Using Object.assign() method
+      console.log(Object.assign({}, arr));
+      
+
+      // Method 2 Using Spread operator
+      console.log({ ...arr });
+      
+
+      // Method 3: Using Object.fromEntries() method
+      console.log(Object.fromEntries(arr1));
+      
+    </script>
+  </body>
+</html>

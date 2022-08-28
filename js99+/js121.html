@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>squareofvestor</title>
+</head>
+<body>
+    <script>
+        //Write a JavaScript program to find the sum of squares of a numeric vector.
+        function sum_sq(array) {
+    var sum = 0, 
+        i = array.length;
+    while (i--){
+     sum += Math.pow(array[i], 2);
+    }
+    return sum;
+    
+  }
+   
+  console.log(sum_sq([0,1,2,3,4])); 
+    </script>
+</body>
+</html>

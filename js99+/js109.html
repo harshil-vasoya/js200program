@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>covertobjtoarray</title>
+  </head>
+  <body>
+    <script>
+      let obj = {
+        id: "1",
+        name: "Test User",
+        age: "25",
+        profession: "Developer",
+      };
+
+      //Method 1: Convert the keys to Array using - Object.keys()
+      console.log(Object.keys(obj));
+
+      // Method 2 Converts the Values to Array using - Object.values()
+      console.log(Object.values(obj));
+
+      // Method 3 Converts both keys and values using - Object.entries()
+      console.log(Object.entries(obj));
+    </script>
+  </body>
+</html>

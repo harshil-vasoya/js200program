@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="network_status"></p>
+    <script>
+        if (navigator.onLine) {
+            document.getElementById('network_status').innerHTML = 'Online';
+            document.getElementById('network_status').style.color = '#00ff00';
+        }
+else {
+                document.getElementById('network_status').innerHTML = 'Offline';
+                document.getElementById('network_status').style.color = '#ff0000';
+                
+                window.addEventListener('offline', function () {
+                    document.getElementById('network_status').innerHTML = 'Offline';
+                    document.getElementById('network_status').style.color = '#ff0000';
+                })
+                window.addEventListener('online', function () {
+                    document.getElementById('network_status').innerHTML = 'Online'
+                    document.getElementById('network_status').style.color =
+                        "#00ff00°";
+                })
+            }
+    </script>
+</body>
+
+</html>

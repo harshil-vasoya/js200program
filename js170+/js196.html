@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pattern4</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+
+		n=5;
+		k=0;
+
+		for(i=1;i<=(n*2)-1;i++)
+		{
+			if(i<=n)
+			{
+				k++;
+			}else
+			{
+				k--;
+			}
+			for(j=1;j<=(n*2)-1;j++)
+			{
+				if(j<=(n+1)-k || j>=(n-1)+k)
+				{
+					document.write("*");
+				}else{
+
+					document.write("&nbsp&nbsp");
+				}
+			}
+
+			document.write("<br/>");
+		}
+
+		//n=5
+		//for(i=0;i<n;i++)
+		// {
+		// 	for(j=0;j<n-i;j++)
+		// 	{
+		// 		document.write("X");
+		// 	}
+		// 	for(k=0;k<i;k++)
+		// 	{
+		//  		document.write("A");
+		// 	}
+		// 	for(c=0;c<i-1;c++)
+		// 	{
+		// 		document.write("A")
+		// 	}
+		// 	for(d=(n*2)-1;d>=((n+1)+i);d--)
+		// 	{
+		// 		if(d>n+1){
+		// 			document.write("X");
+		// 			document.write("X");
+		// 		}else{
+		// 			document.write("X");
+		// 		}
+		// 	}
+
+		//	document.write("<br/>");
+		//}
+
+		// for (i=1;i<=n-1;i++) 
+		// {
+		
+		// 	for(j=1;j<=i;j++)
+		// 	{
+		// 		document.write("X");
+		// 	}
+
+		// 	for(k=1;k<=((n-1)-i)*2;k++)
+		// 	{
+		// 		document.write("&nbsp&nbsp");
+		// 	}
+
+		// 	for(r=1;r<=i;r++)
+		// 	{
+		// 		document.write("X");
+			
+		// 	}	
+
+		// 	document.write("<br/>");
+		// }
+	</script>
+</body>
+</html>

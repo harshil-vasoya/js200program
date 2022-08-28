@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Number is Float or Integer -->
+    <script>
+        // program to check if a number is a float or integer value
+
+        function checkNumber(x) {
+
+            if (typeof x == 'number' && !isNaN(x)) {
+
+                if (Number.isInteger(x)) {
+                    console.log(`${x} is integer.`);
+                }
+                else {
+                    console.log(`${x} is a float value.`);
+                }
+
+            } else {
+                console.log(`${x} is not a number`);
+            }
+        }
+
+        checkNumber('hello');
+        checkNumber(44);
+        checkNumber(3.4);
+        checkNumber(-3.4);
+        checkNumber(NaN);
+    </script>
+</body>
+
+</html>

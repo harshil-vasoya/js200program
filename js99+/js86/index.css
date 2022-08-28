@@ -1,0 +1,126 @@
+
+@font-face {
+    font-family: rp;
+    src: url(Orbitron-VariableFont_wght.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+.calci {
+  display: grid;
+  /* grid-template-columns: auto auto auto auto; */
+  /* grid-template-columns: repeat(4,minmax(0,1fr)); */
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: auto auto auto auto auto auto;
+  font-size: 2re;
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  gap: 0.5rem;
+  padding: 0.9rem 0.9rem 1.1rem 0.9rem;
+  border: 1px solid black;
+  border-radius: 0.7rem;
+
+
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset,rgba(0, 0, 0, 0.4) 0px 4px 8px,
+    rgba(0, 0, 0, 0.3) 0px 14px 26px -6px, rgba(0, 0, 0, 0.2) 0px -6px 0px inset;
+}
+
+#display {
+    font-family: rp;
+  grid-column: 1 / span 4;
+  background-color: rgb(153, 182, 209);
+  margin-bottom: 0.3rem;
+  text-align: right;
+  padding: 2.5rem 1rem 0 1rem;
+  font-size: 3.4rem;
+  border-top-left-radius: 0.7rem;
+  border-top-right-radius: 0.7rem;
+  border-bottom-left-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.calci > input {
+  outline: none;
+  border: none;
+  font-size: 2rem;
+  background-color: white;
+  padding: 1.3rem;
+  border-radius: 0.7rem;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.calci > input:active {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
+    rgb(209, 213, 219) 0px 0px 0px 1px inset;
+}
+
+.calci input[value="+"] {
+  grid-column: 4 / span 1;
+  grid-row: 3 / 5;
+}
+.calci input[value="0"] {
+  grid-column: 1 / span 2;
+}
+
+
+.update{
+ width: fit-content;
+ text-align: center;
+ padding: 1rem;
+ border-radius:2rem;
+  background-color: white;
+  border: 1px solid gray;
+  margin: 1rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.update>div{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.set-btn{
+  width: fit-content;
+  padding: 0.3rem 1rem;
+  border: 1px solid orange;
+  border-radius: 2rem;
+  font-size: 1rem;
+  color: orange;
+  margin-top: 0.5rem;
+  background-color: white;
+}
+
+.set-btn:active{
+  transform: scale(0.9);
+}
+
+.update input{
+ margin: 0.5rem;
+ width: 5rem;
+ border-radius: 1rem;
+}
+
+
+@media only screen and (max-width: 600px) {
+    *{
+        font-size: 14px;
+    }
+  }

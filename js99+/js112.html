@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>enqeuedqueue</title>
+  </head>
+  <body>
+    <script>
+              var inputStack = [];
+      var outputStack = [];
+      function enqueue(stackInput, item) {
+        return stackInput.push(item);
+      }
+      function dequeue(stackInput, stackOutput) {
+        if (stackOutput.length <= 0) {
+          while(stackInput.length > 0) {
+            var elementToOutput = stackInput.pop();
+            stackOutput.push(elementToOutput);
+          }
+        }
+        return stackOutput.pop();
+    }
+    </script>
+  </body>
+</html>

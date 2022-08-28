@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- set Subset Operation -->
+<body>
+    <script>
+        // perform subset operation
+        // true if all elements of set b is in set a
+        function subset(setA, setB) {
+            for (let i of setB) {
+                if (!setA.has(i)) {
+                    return false
+                }
+            }
+            return true
+        }
+
+        // two sets of fruits
+        const setA = new Set(['apple', 'mango', 'orange']);
+        const setB = new Set(['apple', 'orange']);
+
+        const result = subset(setA, setB);
+
+        console.log(result);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        div {
+            display: inline-block;
+            text-align: center;
+            width: 30px;
+        }
+    </style>
+    <!-- 
+                1
+            4   9   16
+        25  36  49  64  81
+    100 121 144 169 196 225 256
+289 324 361 400 441 484 529 576 625
+   -->
+</head>
+
+<body>
+
+    <script>
+        var i, j, k;
+        var m = 1;
+        for (i = 1; i <= 9; i += 2) {
+            for (j = i; j < 9; j++)
+                document.write("&nbsp;&nbsp;&nbsp;&nbsp;");
+            for (k = 1; k <= i; k++) {
+                document.write("<div>" + m * m + "</div>");
+                m++;
+            }
+            document.write("<br>");
+        }
+    </script>
+</body>
+
+</html>

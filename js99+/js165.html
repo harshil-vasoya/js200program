@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- Find length of the longest consecutive path from a given starting character -->
+
+<body>
+    <script>
+
+        let x = [0, 1, 1, -1, 1, 0, -1, -1];
+        let y = [1, 0, 1, 1, -1, -1, 0, -1];
+        let R = 3;
+        let C = 3;
+        let dp = new Array(R);
+
+        for (let i = 0; i < R; i++) {
+            dp[i] = new Array(C);
+            for (let j = 0; j < C; j++) {
+                dp[i][j] = 0;
+            }
+        }
+
+        function isvalid(i, j) {
+            if (i < 0 || j < 0 || i >= R || j >= C)
+                return false;
+            return true;
+        }
+        function isadjacent(prev, curr) {
+            return ((curr.charCodeAt() - prev.charCodeAt()) == 1);
+        }
+
+        function getLenUtil(mat, i, j, prev) {
+            if (!isvalid(i, j) || !isadjacent(prev, mat[i][j]))
+                return 0;
+
+            if (dp[i][j] != -1)
+                return dp[i][j];
+
+            let ans = 0; // Initialize answer
+
+            for (let k = 0; k < 8; k++)
+                ans = Math.max(ans, 1 + getLenUtil(mat, i + x[k],
+                    j + y[k], mat[i][j]));
+
+            return dp[i][j] = ans;
+        }
+
+        function getLen(mat, s) {
+            for (let i = 0; i < R; ++i)
+                for (let j = 0; j < C; ++j)
+                    dp[i][j] = -1;
+
+            let ans = 0;
+
+            for (let i = 0; i < R; i++) {
+                for (let j = 0; j < C; j++) {
+                    if (mat[i][j] == s) {
+
+                        for (let k = 0; k < 8; k++)
+                            ans = Math.max(ans, 1 + getLenUtil(mat,
+                                i + x[k], j + y[k], s));
+                    }
+                }
+            }
+            return ans;
+        }
+
+        let mat = [['a', 'c', 'd'],
+        ['h', 'b', 'e'],
+        ['i', 'g', 'f']];
+
+     
+        document.write(getLen(mat, 'e') + "</br>");
+     
+
+    </script>
+</body>
+
+</html>

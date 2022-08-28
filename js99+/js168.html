@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>prime with out %,/</title>
+</head>
+<body>
+    <script>
+        n=10;
+        answer=0;
+        nuberx0=0;
+        for(i=0;i<n/2;n++)
+        {
+           x=i;
+            y=1;
+            y12=0;
+            while (y==1)
+            {
+                if (y12< n)
+                {
+                    y12=y12+x;
+                }
+                else if (n-y12==0)
+                {
+                    y++;
+                    nuberx0++;
+                }
+                else
+                {
+                    y++;
+                }
+
+            }
+            if(nuberx0!=0)
+            {
+              console.log("not prime");
+                answer++;
+                break;
+            }
+        }
+        if(answer==0)
+        {
+            console.log("prime");
+        }
+    </script>
+</body>
+</html>

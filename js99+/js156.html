@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- Print unique rows in a given Binary matrix -->
+<body>
+    <script>
+
+
+        let ROW = 4;
+        let COL = 5;
+
+        function findUniqueRows(M) {
+            for (let i = 0; i < ROW; i++) {
+                let flag = 0;
+
+                for (let j = 0; j < i; j++) {
+                    flag = 1;
+
+                    for (let k = 0; k < COL; k++)
+                        if (M[i][k] != M[j][k])
+                            flag = 0;
+
+                    if (flag == 1)
+                        break;
+                }
+
+                if (flag == 0) {
+
+                    for (let j = 0; j < COL; j++)
+                        document.write(M[i][j] + " ");
+
+                    document.write("<br>");
+                }
+            }
+        }
+
+        let M = [[0, 1, 0, 0, 1],
+        [1, 0, 1, 1, 0],
+        [0, 1, 0, 0, 1],
+        [1, 0, 1, 0, 0]]
+
+        findUniqueRows(M)
+
+
+    </script>
+</body>
+
+</html>

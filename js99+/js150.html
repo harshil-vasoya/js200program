@@ -1,0 +1,26 @@
+<!-- 
+1 
+2 6 
+3 7 10 
+4 8 11 13 
+5 9 12 14 15
+ -->
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      var i, j, k, m;
+      for (i = 1; i <= 5; i++) {
+        document.write(i + " ");
+        m = 4;
+        k = i + m;
+        for (j = 1; j < i; j++) {
+          document.write(k + " ");
+          m--;
+          k = k + m;
+        }
+        document.write("<br>");
+      }
+    </script>
+  </body>
+</html>

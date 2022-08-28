@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sumofsubarry</title>
+  </head>
+  <body>
+    <script>
+      // Given an array Arr[] of N integers.
+      // Find the contiguous sub-array(containing at least one number)
+      // which has the maximum sum and return its sum.
+
+      function firstapproch(arr, size) {
+        let max_so_far = arr[0];
+        let cur_max = arr[0];
+
+        for (let i = 1; i < size; i++) {
+          cur_max = Math.max(arr[i], cur_max + arr[i]);
+          max_so_far = Math.max(max_so_far, cur_max);
+        }
+
+        return max_so_far;
+      }
+      function seconapproch(arr, size) {
+        var max_sum = arr[0];
+        for (let i = 0; i < size; i++) {
+          sum = 0;
+          for (let j = i; j < size; j++) {
+            sum = sum + arr[j];
+            if (sum > max_sum) {
+              max_sum = sum;
+            }
+          }
+        }
+        return max_sum;
+      }
+      let a = [-2, -3, 4, -1, -2, 1, 5, -3];
+      let n = a.length;
+      console.log(firstapproch(a, n));
+      console.log(seconapproch(a, n));
+    </script>
+  </body>
+</html>

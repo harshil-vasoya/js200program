@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+
+    <link rel="stylesheet" href="index.css">
+
+</head>
+<!-- pro calculator -->
+<body onkeydown="press(event)">
+
+    <form class="update" name="setColor">
+        <div><label for="">Background : </label><input type="color" value="#ffffff" name="backgroundColor"></div>
+        <div><label for="">calculator : </label><input type="color" value="#ffffff" name="calciColor"></div>
+        <div><label for="">Switch : </label><input type="color" value="#ffffff" name="switchColor"></div>
+        <div><label for="">Text : </label><input type="color" value="#000000" name="textColor"></div>
+        <input type="button" value="set" class="set-btn" onclick="setTheme()">
+    </form>
+
+    <button onclick="party()">party</button>
+
+
+    <div class="calci">
+        <div id="display">0</div>
+        <input type="button" value="C" onclick="clearAll()">
+        <input type="button" value="+/-" onclick="invert()">
+        <input type="button" value="%" onclick="addOp('/')">
+        <input type="button" value="x" onclick="addOp('*')">
+        <input type="button" value="1" onclick="add(this.value)">
+        <input type="button" value="2" onclick="add(this.value)">
+        <input type="button" value="3" onclick="add(this.value)">
+        <input type="button" value="+" onclick="addOp(this.value)">
+        <input type="button" value="4" onclick="add(this.value)">
+        <input type="button" value="5" onclick="add(this.value)">
+        <input type="button" value="6" onclick="add(this.value)">
+        <input type="button" value="7" onclick="add(this.value)">
+        <input type="button" value="8" onclick="add(this.value)">
+        <input type="button" value="9" onclick="add(this.value)">
+        <input type="button" value="-" onclick="addOp(this.value)">
+        <input type="button" value="0" onclick="add(this.value)">
+        <input type="button" value="." onclick="add(this.value)">
+        <input type="button" value="=" onclick="calculate()">
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

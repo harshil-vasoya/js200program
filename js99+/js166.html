@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="js166.png" alt="" srcset="">
+    <!-- Collect maximum coins before hitting a dead end -->
+    <script>
+
+        const R = 5
+        const C = 5
+
+        function isValid(i, j) {
+            return (i >= 0 && i < R && j >= 0 && j < C);
+        }
+
+        function maxCoinsRec(arr, i, j, dir) {
+            if (isValid(i, j) == false || arr[i][j] == '#')
+                return 0;
+
+            let result = (arr[i][j] == 'C') ? 1 : 0;
+
+            if (dir == 1) // Direction is right
+                return result + Math.max(maxCoinsRec(arr, i + 1, j, 0),	 // Down
+                    maxCoinsRec(arr, i, j + 1, 1)); // Ahead in right
+
+            return result + Math.max(maxCoinsRec(arr, i + 1, j, 1), // Down
+                maxCoinsRec(arr, i, j - 1, 0)); // Ahead in left
+        }
+
+
+        let arr = [['E', 'C', 'C', 'C', 'C'],
+        ['C', '#', 'C', '#', 'E'],
+        ['#', 'C', 'C', '#', 'C'],
+        ['C', 'E', 'E', 'C', 'E'],
+        ['C', 'E', '#', 'C', 'E']
+        ];
+
+        document.write("Maximum number of collected coins is " + maxCoinsRec(arr, 0, 0, 1), "</br>");
+
+    </script>
+</body>
+
+</html>

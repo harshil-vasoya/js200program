@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>unionoftwoarray</title>
+  </head>
+  <body>
+    <script>
+      // union of two array.
+
+      const arr1 = ["a", "b", "c"];
+      const arr2 = ["a", "b", "c", "d"];
+
+      const union = Array.from(new Set([...arr1, ...arr2]));
+
+      console.log(union);
+    </script>
+  </body>
+</html>

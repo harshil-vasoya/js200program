@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>anagrams</title>
+  </head>
+  <body>
+    <script>
+      var firstWord = "Mary";
+      var secondWord = "Army";
+
+      isAnagram(firstWord, secondWord); // true
+
+      function isAnagram(first, second) {
+        var a = first.toLowerCase();
+        var b = second.toLowerCase();
+        a = a.split("").sort().join("");
+        b = b.split("").sort().join("");
+        return a === b;
+      }
+    </script>
+  </body>
+</html>
