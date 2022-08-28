@@ -1,0 +1,17 @@
+
+.list
+{
+ 
+    position: absolute;    
+    margin-top: 20vh;
+    height: 20px;
+    width:auto;
+    font-size: 2rem;
+
+}
+.harshil
+{
+    border: 2px, solid,black;
+    height: 10vh;
+    width: 10vw;
+}

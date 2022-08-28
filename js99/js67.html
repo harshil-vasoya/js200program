@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- string has only a and b alphabets and number of this alphabet are same-->
+    <script>
+        let text = "abbca"
+        let length = text.length;
+        let count = parseInt(0);
+        let discont = 0;
+        for (i = 0; i < length; i++) {
+            if (text.charAt(i) == 'a') {
+                count++;
+            }
+            else if (text.charAt(i) == 'b') {
+                count--;
+            }
+            else {
+                discont = -1;
+                break;
+            }
+
+        }
+        if (count == 0) {
+            console.log("yes");
+        }
+        else if (discont < 0) {
+            console.log("no");
+        }
+        else {
+            console.log("no");
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- For example, if the given array nums was [2, 0, 3], the Gaussian Sum
+        would be (3 * (3 + 1)) / 2, which is 6. (Why did we know that n = 3? Since
+        only one number is missing from the array, and the array starts counting at 
+        0, we know that the largest number, n, in the array is equal to the length of
+        the array.) The actual sum of the digits in the array is 5 (2 + 0 + 3). The difference between the Gaussian sum and the actual sum is 1, which is our missing number. -->
+    <script>
+        nums = [2, 0, 3]
+        function missingNumber(nums) {
+            const gaussSum = (nums.length * (nums.length + 1)) / 2;
+            const actualSum = nums.reduce((accumulator, currentValue) => accumulator + currentValue);
+            return gaussSum - actualSum;
+        }
+        console.log(missingNumber(nums));
+    </script>
+</body>
+
+</html>

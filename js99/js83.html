@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- Finding the Most Frequent Elements in an Array -->
+
+<body>
+    <!-- For example, if you were given the array [1, 1, 1, 2, 2, 3, 3, 3], 
+        and k = 2, you'd want to return the two most frequently found elements 
+        in the array, which is [1, 3]. -->
+    <script>
+        nums = [1, 1, 1, 1, 2, 2, 3, 3, 3]
+
+        function topKFrequent(nums, k) {
+            let hash = {}
+
+            for (let num of nums) {
+                if (!hash[num]) hash[num] = 0
+                hash[num]++
+            }
+
+            const hashToArray = Object.entries(hash)
+            const sortedArray = hashToArray.sort((a, b) => b[1] - a[1])
+            const sortedElements = sortedArray.map(num => parseInt(num[0]))
+            return sortedElements.slice(0, k)
+
+        }
+        console.log(topKFrequent(nums,2));
+    </script>
+</body>
+
+</html>

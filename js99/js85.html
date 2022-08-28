@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 
+        The Container with the Most Water: Solving an Algorithm about Areas
+     -->
+
+<body>
+    <!-- Let's say you were given the array [1,8,6,2,5,4,8,3,7]. Placing each of these numbers on a bar chart, you'd get: -->
+
+
+    <script>
+        height = [1, 8, 6, 2, 5, 4, 8, 3, 7];
+        function maxArea(height) {
+            let max = 0;
+            let left = 0;
+            let right = height.length - 1;
+
+            while (left < right) {
+                let smallerLine = Math.min(height[left], height[right]);
+                max = Math.max(max, smallerLine * (right - left));
+                if (height[left] < height[right]) {
+                    left++;
+                } else {
+                    right--;
+                }
+            }
+            return max;
+        }
+        console.log(maxArea(height));
+    </script>
+</body>
+
+</html>

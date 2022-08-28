@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--  The Longest Substring With No Repeating Characters-->
+    <script>
+        s="abcdebca"
+        function lengthOfLongestSubstring(s) {
+            let uniqueSub = new Set();
+            let longest = 0;
+            let i = 0;
+            let j = 0;
+            while (i < s.length && j < s.length) {
+                if (!uniqueSub.has(s[j])) {
+                    uniqueSub.add(s[j]);
+                    longest = Math.max(longest, uniqueSub.size);
+                    j++;
+                } else {
+                    uniqueSub.delete(s[i]);
+                    i++;
+                }
+            }
+            return longest;
+        }
+        console.log(lengthOfLongestSubstring(s));
+    </script>
+</body>
+
+</html>

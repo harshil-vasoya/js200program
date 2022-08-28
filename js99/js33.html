@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        *
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: normal;
+}
+body
+{
+    background: linear-gradient(to right ,#ffff,#f7f8f8);
+}
+.mainscreen
+{
+    display: grid;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%,-50%);
+    /* justify-content: center; */
+    align-content: center;
+    padding: 1rem;
+    grid-template-columns: repeat(4,100px);
+    grid-template-rows: minmax(120px,auto) repeat(5,100px);
+    border-radius: 1rem;
+    background-color: gray;
+    width: fit-content;
+    
+}
+button{
+    font-size: 2rem;
+    margin: 5px;
+}
+.mainscreen>button
+{
+    cursor: pointer;
+    font-size: 150 px;
+    border: 2px solid white;
+    border-radius: 30px;
+    outline: none;
+    background-color: white;
+}
+.mainscreen>button:hover
+{
+
+    transform: scale(0.9);
+    box-shadow: 0px 0px 10px black;
+}
+.size-2
+{
+    grid-column: span 2 ;
+}
+.output
+{
+    border: 2px solid white;
+    grid-column: 1 / -1;
+    background-color: rgb(145, 177, 198);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    word-wrap: break-word;
+    word-break:break-all ;
+}
+.output .small .inputarea1
+{
+    background-color: inherit;
+ 
+    color: black;
+    font-size:  2.2rem;
+    margin: auto;
+    border: 0px;
+}
+.output .maininput .inputarea
+{
+    background-color: inherit;
+    border: none;
+    font-size:1.7rem;
+}
+
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Calculator -->
+    <div class="mainscreen" >
+        <div class="output">
+            <div class="small" > <input type="text" class="inputarea1" id="maininput2"></div>
+                <div class="maininput"><input type="text" class="inputarea" id="maininput" ></div>
+            
+        </div>
+      <button class="size-2" onclick="clearall()">AC</button>
+      <button onclick="deletelement()">DEL</button>
+      <button onclick="pressopp(this)"  value="/">/</button>
+      <button onclick="pressnumebr(this)"  value="1" >1</button>
+      <button onclick="pressnumebr(this)" value="2">2</button>
+      <button onclick="pressnumebr(this)" value="3">3</button>
+      <button onclick="pressopp(this)" value="*">*</button>
+      <button onclick="pressnumebr(this)" value="4">4</button>
+      <button onclick="pressnumebr(this)" value="5">5</button>
+      <button onclick="pressnumebr(this)"  value="6">6</button>
+      <button onclick="pressopp(this)" value="+">+</button>
+      <button onclick="pressnumebr(this)" value="7">7</button>
+      <button onclick="pressnumebr(this)" value="8">8</button>
+      <button onclick="pressnumebr(this)" value="9">9</button>
+      <button onclick="pressopp(this)" value="-">-</button>
+      <button onclick="pressnumebr(this)" value="0">0</button>
+      <button onclick="pressnumebr(this)" value=".">.</button>
+      <button class="size-2" onclick="getanswer(this)" value="=">=</button>
+
+    <script>
+            oldvalue=[];
+            newvalue=0;
+            newop=0;
+            i=0;
+           function pressnumebr(this1)
+            {
+                n1=document.getElementById("maininput");
+                
+                n1.value +=this1.value;
+                
+                
+            }
+            function pressopp(this2)
+            {
+                n1=document.getElementById("maininput");
+                n2=document.getElementById("maininput2");
+                n2.value=n1.value;
+                oldvalue=n1.value;
+                n1.value="";
+               
+                newop=this2.value;
+            }
+            function getanswer(this1)
+            {
+                n1=document.getElementById("maininput");
+                n2=document.getElementById("maininput2");
+
+                if(newop=="+")
+                {
+                    n2.value=parseFloat(n1.value)+parseFloat(oldvalue);
+                    n1.value="";
+                    oldvalue="";
+                    newop="";
+                }
+                else if(newop=="-")
+                {     
+                    n2.value=-parseFloat(n1.value)+parseFloat(oldvalue);
+                    n1.value="";
+                    oldvalue="";
+                    newop="";
+                }
+                else if(newop=="*")
+                {
+                    n2.value=parseFloat(n1.value)*parseFloat(oldvalue);
+                    n1.value="";oldvalue="";
+                    newop="";
+                }
+                else if(newop=="/")
+                {
+                    n2.value=parseFloat(oldvalue)/parseFloat(n1.value);
+                    n1.value="";
+                    oldvalue="";
+                    newop="";
+                }
+                else
+                {
+                    alert("please enter valid opp");
+                }
+            }
+         function deletelement()
+         {
+            n1=document.getElementById("maininput");
+            sub=n1.value;
+            
+            length1=sub.length;
+            n1.value=sub.substring(0,length1-1);
+            
+            m1.value=" ";  
+         }
+         function clearall()
+         {
+            n1=document.getElementById("maininput");
+            n2=document.getElementById("maininput2");
+            n1.value="";
+            n2.value="";
+            oldvalue="";
+            newop=""
+         }
+
+
+    </script>
+
+
+</body>
+</html>

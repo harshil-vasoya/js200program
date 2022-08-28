@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--For example, if you were given the string "APPLESAUCE", the first 
+        unique character is "L" at index 3, since "L" is only found once 
+        in the string, and it comes before any other unique characters.  -->
+    <script>
+        str = "harshilvasoya"
+        function firstUniqChar(s) {
+            let hash = {};
+            for (let i = 0; i < s.length; i++) {
+                if (s[i] in hash) {
+                    hash[s[i]]++;
+                } else {
+                    hash[s[i]] = 1;
+                }
+            }
+            for (let i = 0; i < s.length; i++) {
+                if (hash[s[i]] === 1) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        console.log(firstUniqChar(str) + " " + str.charAt(firstUniqChar(str)));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stop watch</title>
+
+    <!-- google font link  -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Frank+Ruhl+Libre:wght@300;400&family=IBM+Plex+Serif:wght@400;500&family=JetBrains+Mono:wght@300;400&family=Josefin+Sans:ital,wght@0,100;0,200;1,100&family=Londrina+Outline&family=PT+Serif&family=Playfair+Display:wght@400;500;700&family=Public+Sans:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Frank+Ruhl+Libre:wght@300;400&family=IBM+Plex+Serif:wght@400;500&family=JetBrains+Mono:wght@300;400&family=Josefin+Sans:ital,wght@0,100;0,200;1,100&family=Londrina+Outline&family=PT+Serif&family=Playfair+Display:wght@400;500;700&family=Public+Sans:wght@300;500&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .container {
+        width: 30rem;
+        background-color: #202124;
+        border: 2px solid #304655;
+        border-radius: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+          rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+          rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      }
+      h3 {
+        color: white;
+        text-align: center;
+        font-family: 'Roboto', sans-serif;
+      }
+      .row-1 {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-bottom: 2px solid #304655;
+      }
+      .row-2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 2px solid #304655;
+      }
+      #stopwatch-display,
+      #stopwatch-second-part {
+        border: none;
+        outline: none;
+        background-color: #202124;
+        margin: 1rem 0;
+        margin-left: 1rem;
+        text-align: right;
+        color: white;
+      }
+      #stopwatch-display {
+        width: 70%;
+        font-size: 4rem;
+        display: block;
+        font-family: "JetBrains Mono", monospace;
+        border-bottom: 2px solid #202124;
+      }
+      #stopwatch-second-part {
+        width: 10%;
+        padding-top: 1rem;
+        font-size: 1.5rem;
+        margin-right: 2px;
+        text-align: center;
+        display: block;
+        font-family: "JetBrains Mono", monospace;
+        border-bottom: 2px solid #202124;
+      }
+      #timer-input {
+        border: none;
+        outline: none;
+        width: 80%;
+        font-size: 4rem;
+        margin: 1rem 0;
+        display: none;
+        text-align: right;
+        background-color: #202124;
+        border-bottom: 2px solid #8ab4f9;
+        color: white;
+        font-family: "JetBrains Mono", monospace;
+      }
+      .row-3 button {
+        border: none;
+        outline: none;
+        margin: 1rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        width: 3rem;
+        border-radius: 1px;
+      }
+      #start {
+        background-color: #8ab4f9;
+      }
+      #reset {
+        background-color: #bdc1c5;
+      }
+      #stop-watch:hover,
+      #timer:hover {
+        cursor: pointer !important;
+      }
+      #stop-watch {
+        color: #8ab4f9;
+      }
+
+      #colum-1 {
+        width: 50%;
+      }
+      #colum-2 {
+        width: 50%;
+        border-bottom: 2px solid #8ab4f9;
+      }
+      input::placeholder {
+        font-size: 2rem;
+        color: rgba(255, 255, 255, 0.578);
+        text-align: center;
+      }
+      @media screen and (max-width: 768px) {
+        :root {
+          font-size: 10px;
+        }
+        .row-3 button {
+          width: 5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Timer (credit-u busa) -->
+    <div class="container">
+      <div class="row-1">
+        <div id="colum-1">
+          <h3 id="timer" onclick="timer()">TIMER</h3>
+        </div>
+        <div id="colum-2">
+          <h3 id="stop-watch" onclick="stopwatch()">STOPWATCH</h3>
+        </div>
+      </div>
+      <div class="row-2">
+        <input
+          type="text"
+          id="stopwatch-display"
+          class="stopwatch-output"
+          value="00:00:00"
+          readonly
+        />
+        <input type="text" id="stopwatch-second-part" value="00" readonly />
+        <input
+          type="text"
+          id="timer-input"
+          placeholder="HH : MM : SS"
+          onclick="start1(this)"
+          value=""
+        />
+      </div>
+      <div class="row-3">
+        <button onclick="start()" id="start">START</button>
+        <button onclick="reset()" id="reset">RESET</button>
+      </div>
+    </div>
+    <script>
+      var msg = new SpeechSynthesisUtterance();
+      var voices = window.speechSynthesis.getVoices();
+      msg.voice = voices.filter(function (voice) {
+        return voice.name == "Rishi";
+      })[0];
+      var milisecond = 0,
+        second = 0,
+        minite = 0,
+        hour = 0,
+        ms=0;
+      var temp,cd,ef;
+      var count = 0;
+      var flag = true;
+      var ab;
+      var isTimmerStart = true;
+      var timerflag=true;
+      var timerValue;
+      var timerobj=document.getElementById("timer-input");
+
+      function stopwatch() {
+        isTimmerStart = true;
+        timerobj.style.display = "none";
+        document.getElementById("stop-watch").style.color = "#8AB4F9";
+        document.getElementById("colum-2").style.borderBottom =
+          "2px solid #8AB4F9";
+        document.getElementById("timer").style.color = "white";
+        document.getElementById("colum-1").style.borderBottom = "none";
+        document.getElementById("stopwatch-display").style.display = "block";
+        document.getElementById("stopwatch-second-part").style.display =
+          "block";
+      }
+      function timer() {
+        isTimmerStart = false;
+        timerobj.style.display = "block";
+        document.getElementById("stopwatch-display").style.display = "none";
+        document.getElementById("stopwatch-second-part").style.display = "none";
+        document.getElementById("timer").style.color = "#8AB4F9";
+        document.getElementById("colum-1").style.borderBottom =
+          "2px solid #8AB4F9";
+        document.getElementById("stop-watch").style.color = "white";
+        document.getElementById("colum-2").style.borderBottom = "none";
+        reset();
+      }
+
+      function start() {
+        if (isTimmerStart) {
+          if (flag) {
+            msg.text = "start";
+            window.speechSynthesis.speak(msg);
+            flag = false;
+            document.getElementById("start").innerHTML = "STOP";
+            ab = setInterval(up, 100);
+          } else {
+            msg.text = "stop";
+            flag = true;
+            window.speechSynthesis.speak(msg);
+            document.getElementById("start").innerHTML = "START";
+            clearInterval(ab);
+          }
+        } else {
+            msg.text = "start";
+            window.speechSynthesis.speak(msg);
+            second=parseInt(timerobj.value.substring(6));
+            minite=parseInt(timerobj.value.substring(3,5));
+            hour=parseInt(timerobj.value.substring(0,2));
+            if(flag){
+                ef=setInterval(down,1000);
+            }
+        }
+      }
+
+
+
+      function down(){
+        if(minite==1 && second==00){
+            minite=0;
+            second=60;
+        }
+        var total=hour*3600+minite*60+second;
+        console.log(total);
+        total--;
+        if(total<60){
+            second=total;
+            // console.log("utsav");
+        }
+        else{
+            console.log("busa");
+        q=Math.floor(total/60);
+       second=Math.floor(total-q*60);
+       hour=Math.floor(q/60);
+       minite=Math.floor(q-hour*60);
+        }
+        let h = hour < 10 ? "0" + hour : hour;
+        let m = minite < 10 ? "0" + minite : minite;
+        let s = second < 10 ? "0" + second : second;
+        temp = h + ":" + m + ":" + s;
+        if(temp=="00:00:00"){
+            clearInterval(ef);
+            msg.text = "times is uppppppppppppppp";
+            window.speechSynthesis.speak(msg);
+        }
+        timerobj.value=temp;
+      }
+
+
+      function start1(value){
+        if(timerflag){
+         cd= setInterval(utsav,200);
+        }
+      }
+      function utsav(){
+        timerValue=(timerobj.value).length;
+        // console.log(timerValue);
+        if(timerValue==8){
+            timerflag=false;
+            clearInterval(cd);
+        }
+        if(timerValue==2){
+           timerobj.value=timerobj.value+":";
+        }
+        else  if(timerValue==5){
+            timerobj.value=timerobj.value+":";
+        }
+      }
+
+
+
+      function reset() {
+        if (isTimmerStart) {
+        clearInterval(ab);
+        milisecond = 0;
+        second = 0;
+        minite = 0;
+        hour = 0;
+        temp = "00:00:00";
+        ms = "00";
+
+        document.getElementById("stopwatch-display").value = temp;
+        document.getElementById("stopwatch-second-part").value = ms;
+        document.getElementById("start").innerHTML = "START";
+        }
+        else{
+            timerobj.value="";
+            clearInterval(ef);
+            timerflag=true;
+        }
+      }
+
+
+
+
+
+
+      function up() {
+        milisecond++;
+        if (milisecond == 10) {
+          second++;
+          milisecond = 0;
+        } else if (second == 60) {
+          minite++;
+          second = 0;
+        } else if (minite == 60) {
+          hour++;
+          minite = 0;
+        }
+        let h = hour < 10 ? "0" + hour : hour;
+        let m = minite < 10 ? "0" + minite : minite;
+        let s = second < 10 ? "0" + second : second;
+         ms = milisecond < 10 ? "0" + milisecond : milisecond;
+        document.getElementById("stopwatch-second-part").value = ms;
+
+        temp = h + ":" + m + ":" + s;
+        document.getElementById("stopwatch-display").value = temp;
+      }
+    </script>
+  </body>
+</html>

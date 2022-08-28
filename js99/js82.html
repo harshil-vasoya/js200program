@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- From "hello world" to "world hello": Reversing the Words in a String
+ -->
+    <script>
+        s = "hello world this is harshil vasoya";
+        function reverseWords(s) {
+            const arr = s.split(" ")
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] === "") {
+                    arr.splice(i, 1)
+                    i--
+                }
+            }
+            let left = 0
+            let right = arr.length - 1
+            while (left <= right) {
+                const temp = arr[left]
+                arr[left] = arr[right]
+                arr[right] = temp
+                left++
+                right--
+            }
+            return arr.join(" ")
+        }
+        console.log(reverseWords(s))
+    </script>
+</body>
+
+</html>

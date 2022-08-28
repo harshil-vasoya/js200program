@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- For example, let's say you were given the array [8, 1, 4, 2, 6, 5] as the input,
+         which is supposed to represent the price of a stock on each day. The best profit 
+         you could make would be by buying stock on the second day (index 1), when the price
+          was 1, and selling it on the fifth day (index 4), when the price was 6, for a 
+          total max profit of 5 (6 - 1 = 5) -->
+
+    <script>
+        prices = [8, 1, 4, 2, 6, 5]
+        function maxProfit(prices) {
+            let minPrice = prices[0];
+            let maxProfit = 0;
+            for (let i = 0; i < prices.length; i++) {
+                if (prices[i] < minPrice) {
+                    minPrice = prices[i];
+                } else if (prices[i] - minPrice > maxProfit) {
+                    maxProfit = prices[i] - minPrice;
+                }
+            }
+            return maxProfit;
+        }
+        console.log(maxProfit(prices));
+    </script>
+</body>
+
+</html>

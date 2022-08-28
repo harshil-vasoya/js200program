@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Finding the Only Single Number in an Array -->
+    <script>
+        nums=[2,3,4,-4,4,5]
+        function singleNumberWithHash(nums) {
+            let hash = {};
+            nums.forEach((num) => {
+                if (hash[num]) {
+                    delete hash[num];
+                }
+                else {
+                    hash[num] = 1;
+                }
+            });
+            return Object.keys(hash)[0];
+        }
+        console.log(singleNumberWithHash(nums));
+
+    </script>
+</body>
+
+</html>

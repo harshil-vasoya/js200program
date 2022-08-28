@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Searching an Array, Two Ways -->
+    <!-- For example, if the inputted array was [1, 2, 6, 8]
+       and the target was 2, the function should return the
+       output 1, because 2 is at the first index in the inputted array.
+       If the inputted array was [1, 2, 6, 8] and the target was 4,
+       the function should return the output 2, because in this ordered array,
+       if we inserted 4 into it, it would be at index 2 (between numbers 2 and 6). -->
+    <script>
+        nums = [1,2,6,8];
+        function searchInsert2(nums, target) {
+  let start = 0;
+  let end = nums.length - 1;
+
+  while (start <= end) {
+    const midPoint = Math.floor((start + end) / 2);
+    if (nums[midPoint] === target) return midPoint;
+    if (nums[midPoint] > target) {
+      end = midPoint - 1;
+      continue;
+    }
+    if (nums[midPoint] < target) {
+      start = midPoint + 1;
+      continue;
+    }
+  }
+  return start;
+}
+        console.log(searchInsert2(nums, 4))
+        
+    </script>
+</body>
+
+</html>

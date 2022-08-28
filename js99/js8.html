@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--Check Armstrong Number  -->
+    <script>
+        n1 = parseInt(prompt("enter your number for checking armstrong or not"));
+        y = parseInt(n1);
+        temp = parseInt(0);
+        x = parseInt(0);
+        tempc = parseInt(1);
+        answer = parseInt(0);
+
+        while (n1 != 0) {
+            n1 = parseInt(n1 / 10);
+            temp++;
+        }
+        n1 = parseInt(y);
+        while (n1 != 0) {
+            x = parseInt(n1 % 10);
+            for (i = 0; i < temp; i++) {
+                tempc = tempc * x;
+            }
+            answer = answer + tempc;
+            tempc = parseInt(1);
+            n1 = parseInt(n1 / 10);
+        }
+        if (answer == y) {
+            document.write("yes");
+        }
+        else {
+            document.write("no");
+        }
+
+    </script>
+</body>
+
+</html>

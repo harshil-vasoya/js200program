@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Whether a String is Palindrome or Not -->
+    <script>
+      
+        function checkPalindrome(string) {
+
+            const len = string.length;
+
+            for (i = 0; i < len / 2; i++) {
+
+                if (string[i] !== string[len - 1 - i]) {
+                    return " not a palindrome";
+                }
+            }
+            return "palindrome";
+        }
+
+         string = prompt("Enter a string: ");
+
+         value = checkPalindrome(string);
+
+        console.log(value);
+    </script>
+
+</body>
+
+</html>

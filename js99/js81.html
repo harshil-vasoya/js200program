@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="js81.png" height="400vh" width="400vw">
+    <script>
+        numRows = 4;
+        function pascals(numRows) {
+            if (numRows === 0) return [];
+            if (numRows === 1) return [[1]];
+            let result = [];
+            for (let row = 1; row <= numRows; row++) {
+                let arr = [];
+                for (let col = 0; col < row; col++) {
+                    if (col === 0 || col === row - 1) {
+                        arr.push(1);
+                    } else {
+                        arr.push((result[row - 2][col - 1] + result[row - 2][col]));
+                    }
+                }
+                result.push(arr);
+            }
+            return result;
+        }
+        console.log(pascals(numRows));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- You are climbing a stair case.
+         It takes n steps to reach to the top.
+         Each time you can either climb 1 or 2 steps. 
+         In how many distinct ways can you climb to the top? -->
+    <img src="js77.png">
+    <script>
+        n = 5
+        function climbStairs3(n) {
+            if (n < 3) return n;
+            let first = 1;
+            let second = 2;
+            for (let i = 2; i < n; i++) {
+                const current = first + second;
+                first = second;
+                second = current;
+            }
+
+            return second;
+        }
+        console.log(climbStairs3(n));
+    </script>
+</body>
+
+</html>

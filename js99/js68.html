@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- happy number -->
+    <script>
+        number=13;
+        a=[];
+        a.push(number);
+        function isHappy(n) {
+  let sum = 0;
+
+  while (n > 0) {
+    let e = n % 10;
+    n = Math.floor(n / 10);
+    sum += e * e;
+  }
+ 
+  if (sum === 1) {
+    return true;
+  } else if (a.includes(sum))
+   {
+    return false;
+  }
+  a.push(sum);
+  return isHappy(sum);
+
+}
+if(isHappy(13))
+{
+    console.log("yes" + " " +a);
+}
+else
+{
+    console.log("no" + " " + a);
+}
+    </script>
+</body>
+</html>

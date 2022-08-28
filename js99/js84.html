@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="js84.png" height="400vh" width="400vw">
+    <script>
+        hour = 6;
+        minutes = 10;
+        function angleClock(hour, minutes) {
+            const minuteAngle = minutes * 6;
+            const hourAngle = (hour * 30) + (minutes * 0.5);
+            const angle = Math.abs(hourAngle - minuteAngle);
+            return Math.min(angle, 360 - angle);
+        }
+        console.log(angleClock(hour, minutes));
+    </script>
+</body>
+
+</html>
